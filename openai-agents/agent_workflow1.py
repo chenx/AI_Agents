@@ -1,4 +1,10 @@
+# This agenst asks for user questions in a loop, finds the answer and post to a webhook API end point.
+# X.C.
+# Last updated: 3/11/2026
+
 from langchain_openai import ChatOpenAI
+# from langchain.callbacks.base import BaseCallbackHandler
+from langchain_core.callbacks import BaseCallbackHandler
 from langchain_core.tools import BaseTool
 from langchain_classic.agents import AgentExecutor
 from langchain_classic import hub
@@ -6,8 +12,42 @@ from langchain_core.prompts import PromptTemplate
 from langchain_classic.agents import create_react_agent
 from langchain_classic.memory import ConversationBufferMemory
 
+import json
 import requests
 from ddgs import DDGS
+from datetime import datetime
+
+
+WEBHOOK_URL = "https://your_account.ngrok-free.dev/service/datastores/"
+
+class WebhookCallbackHandler(BaseCallbackHandler):
+    def __init__(self, webhook_url=WEBHOOK_URL):
+        self.webhook_url = webhook_url
+        self.last_input = None
+    
+    def on_chain_start(
+        self, serialized: dict[str, any], inputs: dict[str, any], **kwargs: any
+    ) -> None:
+        """Run when chain starts to capture the initial input."""
+        # inputs: {'input': 'Who is obama?', 'chat_history': ''}
+        # print(f"inputs: {inputs}, input: {inputs['input']}")
+        self.last_input = inputs['input'] if 'input' in inputs else "(none)"
+        print(f"Agent Input: {self.last_input}")
+
+    def on_agent_finish(self, finish, **kwargs):
+        timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        payload = {
+            "uid": 9999, 
+            "title": self.last_input, 
+            "description": finish.return_values["output"],
+            "created_at": timestamp,
+        }
+        response = requests.post(self.webhook_url, json=payload)
+        print(f"Webhook triggered: {payload}")
+        if response.status_code == 201:
+            print(f"Webhook triggerred successfully")
+        else:
+            print(f"Webhook trigger error: {response.text}")
 
 
 # https://www.meteomatics.com/en/weather-api/how-to-get-weather-api-key/
@@ -29,8 +69,7 @@ class EventTool(BaseTool):
     description: str = "Get events"
 
     def _run(self, event: str) -> str:
-        # TODO: need to setup this.
-        url = f"https://*.ngrok-free.dev/api/events/"
+        url = f"https://your_acount.ngrok-free.dev/api/events/"
         response = requests.get(url)
         return response.json()
 
@@ -64,7 +103,7 @@ llm = ChatOpenAI(
     temperature=0
 )
 
-# tools = [SearchTool(), WeatherTool(), EventTool(), NoOpTool()]
+# tools = [SearchTool(), EventTool(), WeatherTool(), NoOpTool()]
 tools = [SearchTool(), NoOpTool()]
 
 memory = ConversationBufferMemory(memory_key="chat_history")
@@ -103,15 +142,24 @@ agent = create_react_agent(
 )
 # agent.run("Find the latest AI news and summarize it.")
 
+webhook_handler = WebhookCallbackHandler()
 
 agent_executor = AgentExecutor(
     agent=agent,
     tools=tools,
+    callbacks=[webhook_handler],
     memory=memory,
     verbose=True,
     handle_parsing_errors=True,
     stop_on_invalid_action=True,
 )
-# agent_executor.invoke({"input": "Find the latest AI news and summarize it"})
-# agent_executor.invoke({"input": "Get events of Jackie Chan"})
-agent_executor.invoke({"input": "Who is obama?"})
+
+
+while True:
+    question = input("Enter your question (type 'exit' to exit): ")
+    if question == "exit":
+        print("Bye")
+        break
+    elif question == "":
+        question = "Who is obama?"
+    agent_executor.invoke({"input": question})
