@@ -64,7 +64,7 @@ llm = ChatOpenAI(
     temperature=0
 )
 
-# tools = [SearchTool(), EventTool(), NoOpTool()]
+# tools = [SearchTool(), WeatherTool(), EventTool(), NoOpTool()]
 tools = [SearchTool(), NoOpTool()]
 
 memory = ConversationBufferMemory(memory_key="chat_history")
