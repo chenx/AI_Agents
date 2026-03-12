@@ -3,7 +3,6 @@
 # Last updated: 3/11/2026
 
 from langchain_openai import ChatOpenAI
-# from langchain.callbacks.base import BaseCallbackHandler
 from langchain_core.callbacks import BaseCallbackHandler
 from langchain_core.tools import BaseTool
 from langchain_classic.agents import AgentExecutor
@@ -18,17 +17,19 @@ from ddgs import DDGS
 from datetime import datetime
 
 
-WEBHOOK_URL = "https://your_account.ngrok-free.dev/service/datastores/"
+WEBHOOK_URL = "http://127.0.0.1:8000/service/datastores/"
 
 class WebhookCallbackHandler(BaseCallbackHandler):
     def __init__(self, webhook_url=WEBHOOK_URL):
         self.webhook_url = webhook_url
         self.last_input = None
+        self.eventId = 1000
     
     def on_chain_start(
         self, serialized: dict[str, any], inputs: dict[str, any], **kwargs: any
     ) -> None:
         """Run when chain starts to capture the initial input."""
+        # Typically the input is under a key like 'input' or 'question'
         # inputs: {'input': 'Who is obama?', 'chat_history': ''}
         # print(f"inputs: {inputs}, input: {inputs['input']}")
         self.last_input = inputs['input'] if 'input' in inputs else "(none)"
@@ -36,22 +37,21 @@ class WebhookCallbackHandler(BaseCallbackHandler):
 
     def on_agent_finish(self, finish, **kwargs):
         timestamp = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+        self.eventId += 1
         payload = {
-            "uid": 9999, 
+            "uid": self.eventId, 
             "title": self.last_input, 
             "description": finish.return_values["output"],
             "created_at": timestamp,
         }
         response = requests.post(self.webhook_url, json=payload)
-        print(f"Webhook triggered: {payload}")
+        # print(f"Webhook triggered: {payload}")
         if response.status_code == 201:
             print(f"Webhook triggerred successfully")
         else:
             print(f"Webhook trigger error: {response.text}")
 
 
-# https://www.meteomatics.com/en/weather-api/how-to-get-weather-api-key/
-# For business use only.
 class WeatherTool(BaseTool):
     name: str = "WeatherAPI"
     description: str = "Get current weather for a city"
@@ -59,9 +59,21 @@ class WeatherTool(BaseTool):
     def _run(self, city: str) -> str:
         if not city:
             return "No input provided, stopping execution."
-        url = f"https://api.weatherapi.com/v1/current.json?key=API_KEY&q={city}"
-        response = requests.get(url)
-        return response.json()
+        # For business use only:
+        # https://www.meteomatics.com/en/weather-api/how-to-get-weather-api-key/
+        # url = f"https://api.weatherapi.com/v1/current.json?key=API_KEY&q={city}"
+        # response = requests.get(url)
+        # return response.json()
+        response = {
+            "location": {"name": city},
+            "current": {
+                "weather": [{"main": "Rain", "description": "moderate rain"}],
+                "main": {"temp": 284.2, "feels_like": 282.93, "humidity": 60},
+                "wind": {"speed": 4.09},
+                "name": "Province of Turin"
+            }
+        }
+        return response
 
 
 class EventTool(BaseTool):
@@ -69,7 +81,7 @@ class EventTool(BaseTool):
     description: str = "Get events"
 
     def _run(self, event: str) -> str:
-        url = f"https://your_acount.ngrok-free.dev/api/events/"
+        url = f"http://127.0.0.1:8000/api/events/"
         response = requests.get(url)
         return response.json()
 
@@ -103,8 +115,7 @@ llm = ChatOpenAI(
     temperature=0
 )
 
-# tools = [SearchTool(), EventTool(), WeatherTool(), NoOpTool()]
-tools = [SearchTool(), NoOpTool()]
+tools = [SearchTool(), EventTool(),WeatherTool(), NoOpTool()]
 
 memory = ConversationBufferMemory(memory_key="chat_history")
 
@@ -140,7 +151,6 @@ agent = create_react_agent(
     llm=llm,
     prompt=prompt
 )
-# agent.run("Find the latest AI news and summarize it.")
 
 webhook_handler = WebhookCallbackHandler()
 
@@ -154,9 +164,8 @@ agent_executor = AgentExecutor(
     stop_on_invalid_action=True,
 )
 
-
 while True:
-    question = input("Enter your question (type 'exit' to exit): ")
+    question = input("\n==> Enter your question (type 'exit' to exit): ")
     if question == "exit":
         print("Bye")
         break
