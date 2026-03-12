@@ -164,11 +164,14 @@ agent_executor = AgentExecutor(
     stop_on_invalid_action=True,
 )
 
+# agent_executor.invoke({"input": "Find the latest AI news and summarize it"})
+# agent_executor.invoke({"input": "Get events of Jackie Chan"})
+
 while True:
     question = input("\n==> Enter your question (type 'exit' to exit): ")
     if question == "exit":
         print("Bye")
         break
-    elif question == "":
-        question = "Who is obama?"
-    agent_executor.invoke({"input": question})
+    elif question != "": 
+        # e.g., "Who is obama?", "What's the weather at San Jose today?"
+        agent_executor.invoke({"input": question})
