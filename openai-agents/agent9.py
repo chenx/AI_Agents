@@ -19,6 +19,11 @@ from langchain.chat_models import init_chat_model
 from langchain_openai import OpenAIEmbeddings
 from langchain_core.vectorstores import InMemoryVectorStore
 from langchain.tools import tool
+import os
+
+# log to LangSmith if needed.
+# os.environ["LANGSMITH_TRACING"] = "true"
+# os.environ["LANGSMITH_PROJECT"] = "test-project-2026-03-15"
 
 # Load and chunk contents of the blog
 bs4_strainer = bs4.SoupStrainer(class_=("post-title", "post-header", "post-content"))
