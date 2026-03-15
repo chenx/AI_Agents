@@ -43,7 +43,8 @@ prompt = ChatPromptTemplate.from_template(
     """
 )
 
-llm = ChatOpenAI(model="gpt-3.5-turbo")
+# llm = ChatOpenAI(model="gpt-3.5-turbo")
+llm = ChatOpenAI(model="gpt-4o-mini")
 document_chain = create_stuff_documents_chain(llm, prompt)
 
 retriever = vectorstore.as_retriever()
@@ -53,3 +54,11 @@ result = retrieval_chain.invoke({
     "input": "What are some challenges faced by large language models?"
 })
 print(result['answer'])
+
+# example output:
+# The provided context does not explicitly list challenges faced by large language models. 
+# However, it mentions a few related topics that may imply challenges, such as the mention 
+# of emergent abilities, concerns regarding the dangers of large language models, and the 
+# potential biases within word embeddings. To gain a clearer understanding of the specific 
+# challenges faced by large language models, further information and context would typically 
+# be needed beyond what is provided.
