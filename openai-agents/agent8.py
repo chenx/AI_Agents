@@ -1,8 +1,12 @@
-# From https://medium.com/@sujith.adr/simple-retrieval-augmented-generation-rag-application-with-langchain-27781379c6cc
+# https://medium.com/@sujith.adr/simple-retrieval-augmented-generation-rag-application-with-langchain-27781379c6cc
 # A simple Retrieval-Augmented Generation (RAG) application using LangChain. 
 # By combining retrieval systems with generative AI models, RAG enables robust question-answering capabilities 
 # grounded in external knowledge sources
-
+#
+# Note: add USER_AGENT to your environment, e.g., ~/.zshrc in mac:
+# export USER_AGENT="Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/58.0.3029.110 Safari/537.36"
+# then run "source ~/.zshrc"
+#
 from langchain_community.document_loaders import WebBaseLoader
 from langchain_text_splitters import RecursiveCharacterTextSplitter
 from langchain_openai import OpenAIEmbeddings
