@@ -12,3 +12,7 @@
 - https://medium.com/@drjulija/what-is-retrieval-augmented-generation-rag-938e4f6e03d1
 - https://docs.langchain.com/oss/python/langchain/rag
 - https://smith.langchain.com
+
+# Agent framework
+
+- Shell: https://github.com/NahimNasser/pu
