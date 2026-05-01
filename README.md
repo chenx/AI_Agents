@@ -16,3 +16,6 @@
 # Agent framework
 
 - Shell: https://github.com/NahimNasser/pu
+  - "Pu.sh" most commonly refers to a new, minimal 400-line shell script that acts as a portable AI coding agent harness. 
+    It supports Anthropic/OpenAI, 7 tools (bash, edit, read, etc.), and runs without new dependencies.
+ 
