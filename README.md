@@ -13,6 +13,10 @@
 - https://docs.langchain.com/oss/python/langchain/rag
 - https://smith.langchain.com
 
+# Tongyi Qianwen (Alibaba)
+
+- https://qwen.ai/
+
 # Agent framework
 
 - Shell: https://github.com/NahimNasser/pu
