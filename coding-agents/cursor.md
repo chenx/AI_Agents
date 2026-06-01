@@ -19,4 +19,9 @@
   - In Cursor, the default IDE experience and an Agent window are related but serve different purposes.
     - Default Cursor IDE = "pair programmer."
     - Agent Window = "junior engineer who can take a ticket and work through it."
+   
+- API: https://cursor.com/docs/api#available-apis
+  - Cursor provides multiple APIs for programmatic access to your team's data, AI-powered coding agents, and analytics.
+ 
+- Docs: https://cursor.com/docs
 - Mermaid diagram: https://mermaid.ai/open-source/intro/index.html
