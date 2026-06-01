@@ -15,6 +15,7 @@
   - Composer 2.5 is Cursor's own agentic model.
  
 - Cursor IDE vs Agents window
+  - https://cursor.com/docs/agent/agents-window
   - In Cursor, the default IDE experience and an Agent window are related but serve different purposes.
     - Default Cursor IDE = "pair programmer."
     - Agent Window = "junior engineer who can take a ticket and work through it."
