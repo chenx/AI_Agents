@@ -25,3 +25,11 @@
  
 - Docs: https://cursor.com/docs
 - Mermaid diagram: https://mermaid.ai/open-source/intro/index.html
+
+- Agent: https://cursor.com/docs/agent/overview
+- Customizing: https://cursor.com/docs/plugins
+- Cloud agents (need subscription to use): https://cursor.com/docs/cloud-agent
+- Integrations: https://cursor.com/docs/integrations/slack
+- SDK: https://cursor.com/docs/sdk/typescript
+- CLI: https://cursor.com/docs/cli/overview
+- Cursor review: https://cursor.com/docs/cursor-review/overview
