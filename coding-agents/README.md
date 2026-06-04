@@ -143,7 +143,7 @@ Your summary matches how a lot of people actually use these tools day to day. He
 
 
 #### How I’d map your three bullets to choices
-
+```
   ┌──────────────────────────────────────────────────────────────┬───────────────────────────────────┐
   │ If you care most about…                                      │ Your notes point toward…          │
   ├──────────────────────────────────────────────────────────────┼───────────────────────────────────┤
@@ -151,6 +151,7 @@ Your summary matches how a lot of people actually use these tools day to day. He
   │ Hardest problems, terminal-first, long reasoning chains      │ Claude Code                       │
   │ Picking up work on the go / ChatGPT-style flow               │ Codex (when connection is stable) │
   └──────────────────────────────────────────────────────────────┴───────────────────────────────────┘
+```
 
 #### Trust/Control
 
