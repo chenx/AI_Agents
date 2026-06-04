@@ -94,12 +94,12 @@ Codex:
 
 Often a mixed setup: use Cursor as IDE, run cc and codex in terminal.
 
-#### Your summary
+#### Summary
 
 Your summary matches how a lot of people actually use these tools day to day. Here’s how I’d read it
    and where I’d add nuance.
 
-  Cursor
+  **Cursor**
 
   Agree: Forking VS Code lowers the learning curve — extensions, keybindings, and “open file → edit →
   diff” feel familiar. Letting you pick models is a real differentiator when you care about speed vs
@@ -112,7 +112,7 @@ Your summary matches how a lot of people actually use these tools day to day. He
 
   Your takeaway is solid: Cursor optimizes for low friction + flexibility (model + surface).
 
-  Claude Code
+  **Claude Code**
 
   Agree: It started CLI-first and still feels that way — long-horizon repo work, shell-native flow,
   and “go deep on this codebase” are where it earns its reputation. “Depth of reasoning” is the common
@@ -126,7 +126,7 @@ Your summary matches how a lot of people actually use these tools day to day. He
   Your takeaway is solid: Claude Code optimizes for CLI power + sustained reasoning, with IDE as a
   second surface.
 
-  Codex
+  **Codex**
 
   Agree: The CLI surface has historically felt narrower than Cursor’s or Claude Code’s — fewer
   commands, less “batteries included” agent ergonomics unless you wire more yourself. Mobile ↔
