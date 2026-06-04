@@ -93,6 +93,7 @@
     - or: ln -s AGENTS.md CLAUDE.md
   - Organize rules with .claude/rules/
   - Manage CLAUDE.md for large teams
+  - My CLAUDE.md is too large: /compact
 - Auto memory
   - Auto memory lets Claude accumulate knowledge across sessions without you writing anything. 
   - Storage location
@@ -102,6 +103,16 @@
 
 
 ### Permission modes
+
+| Mode                | What runs without asking                                                               | Best for                                |
+| ------------------- | -------------------------------------------------------------------------------------- | --------------------------------------- |
+| `default`           | Reads only                                                                             | Getting started, sensitive work         |
+| `acceptEdits`       | Reads, file edits, and common filesystem commands (`mkdir`, `touch`, `mv`, `cp`, etc.) | Iterating on code you're reviewing      |
+| `plan`              | Reads only                                                                             | Exploring a codebase before changing it |
+| `auto`              | Everything, with background safety checks                                              | Long tasks, reducing prompt fatigue     |
+| `dontAsk`           | Only pre-approved tools                                                                | Locked-down CI and scripts              |
+| `bypassPermissions` | Everything                                                                             | Isolated containers and VMs only        |
+
 
 ### Manage sessions
 
