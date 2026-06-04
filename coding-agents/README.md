@@ -36,3 +36,51 @@ Codex is OpenAI’s autonomous task runner. Rather than acting as an extension o
 * **Workflow:** You assign a large, well-defined piece of work, step away while it handles setup and execution, and check in to review progress.
 * **Pros:** Highly autonomous, excellent for multi-day jobs, and features robust GitHub integration. Included with ChatGPT subscriptions, making it excellent value.
 * **Cons:** If it gets off track on a long task, the feedback loop can be slower to recover compared to interactive tools.
+
+
+## Now all 3 have both CLI and Desktop App
+
+# Updated Comparison: Multi-Interface Support (CLI + Desktop)
+
+**Yes, that is completely correct.** The lines between these tools have blurred significantly. All three platforms now offer **both a Command-Line Interface (CLI)** and a **dedicated Desktop/App environment**, though they still use those interfaces very differently based on their core architectural designs.
+
+---
+
+### How Each Platform Implements CLI and Desktop Layouts
+
+#### 1. Cursor
+Originally just a standalone IDE desktop application, Cursor added a robust CLI to handle advanced multi-agent orchestrations.
+* **Desktop App:** The standard AI-forked VS Code interface you use to write code, with native side panels for Chat, Composer, and codebase indexing.
+* **CLI:** Used for running Cursor's autonomous agent modes (`Plan` and `Ask`) directly inside a standard terminal, allowing you to use headless modes for automated scripts or CI/CD pipelines without launching the heavy GUI.
+
+#### 2. Claude Code
+Anthropic's tool began strictly as a terminal application but was later extended with a visual graphical interface.
+* **CLI:** The native, canonical way to use Claude Code. It gives power users rapid `/bash` command execution, Git worktree isolation, and script piping.
+* **Desktop App:** A graphical wrapper around the agent. It provides a visual sidebar, project file tree, and split-view windows, making it much cleaner to monitor file edits visually without getting overwhelmed by raw terminal output.
+
+#### 3. Codex
+OpenAI's task-automation ecosystem evolved into a standalone product suite.
+* **Desktop App:** A full workspace application that contains an in-app browser and built-in execution sandboxes. It allows you to supervise complex coding, design, and data analysis pipelines visually.
+* **CLI:** A terminal-first worker. It acts as a lightweight background daemon where you can pass quick terminal commands or automatically push background code tasks directly up to cloud runtimes or GitHub.
+
+---
+
+### The Modern Hybrid Workflow
+
+Because all three platforms now support both modalities, a very common developer pattern is to combine them inside a single workspace:
+1. Open **Cursor's Desktop App** to act as your core visual code editor.
+2. Open Cursor's integrated terminal panel.
+3. Launch the **Claude Code CLI** or **Codex CLI** directly inside that terminal window.
+
+This setup allows you to visually inspect live file changes in your editor while simultaneously triggering deep autonomous agents via the command line.
+
+
+### Experience:
+
+Cursor: easy to use, both IDE and CLI have full features; allow choosing from different LLMs. Branched from VS Code.
+
+Claude Code: powerful CLI, IDE was added later. Depth of reasoning.
+
+Codex: CLI has limited commands and features. Connect to mobile codex has issue sometimes.
+
+Often a mixed setup: use Cursor as IDE, run cc and codex in terminal.
