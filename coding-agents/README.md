@@ -40,7 +40,7 @@ Codex is OpenAI’s autonomous task runner. Rather than acting as an extension o
 
 ## Now all 3 have both CLI and Desktop App
 
-# Updated Comparison: Multi-Interface Support (CLI + Desktop)
+Updated Comparison: Multi-Interface Support (CLI + Desktop)
 
 **Yes, that is completely correct.** The lines between these tools have blurred significantly. All three platforms now offer **both a Command-Line Interface (CLI)** and a **dedicated Desktop/App environment**, though they still use those interfaces very differently based on their core architectural designs.
 
