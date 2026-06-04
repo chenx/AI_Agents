@@ -192,3 +192,16 @@ Claude Code offers several ways to work when you’re not at your terminal. They
 | **Slack**           | Mention `@Claude` in a team channel                                      | Anthropic cloud               | Install the Slack app with Claude Code on the web enabled | PRs and reviews from team chat                                |
 | **Scheduled tasks** | Set a schedule                                                           | CLI, Desktop, or cloud        | Pick a frequency                                          | Recurring automation like daily reviews                       |
 
+
+### Remote Control
+
+#### Start a Remote Control session
+
+claude remote-control --name [name]
+
+Connect from another device: 
+
+Enable Remote Control for all sessions
+
+#### Connection and security
+
