@@ -10,7 +10,43 @@
 - Trusted commands: .claude/settings.json
 - /init (creates CLAUDE.md), /agents, /doctor
 
-## Extend Claude Code
+## Core concepts
+
+### How Claude Code works
+
+- The agentic loop: Models, Tools
+- What Claude can access:
+  - project, terminal, git state, CLAUDE.md, auto memory
+  - extensions:
+    - MCP servers for external services,
+    - skills for workflows,
+    - subagents for delegated work, and
+    - Claude in Chrome for browser interaction.
+
+- Environments and interfaces
+  - Execution environments: local, cloud, remote control
+  - Interfaces: desktop app, IDE extensions, claude.ai/code, Remote Control, Slack, and CI/CD pipelines. 
+
+- Work with sessions
+  - Work across branches
+  - Resume or fork sessions
+  - The context window
+
+- Stay safe with checkpoints and permissions
+  - Undo changes with checkpoints
+  - Control what Claude can do
+
+- Tips: Work effectively with Claude Code
+  - Ask Claude Code for help
+  - It’s a conversation
+  - Interrupt and steer
+  - Be specific upfront
+  - Give Claude something to verify against
+  - Explore before implementing
+  - Delegate, don’t dictate
+
+
+### Extend Claude Code
 
 - CLAUDE.md adds persistent context Claude sees every session
 - Skills add reusable knowledge and invocable workflows
@@ -21,3 +57,12 @@
 - Hooks fire on lifecycle events and can run a script, HTTP request, prompt, or subagent
 - Plugins and marketplaces package and distribute these features
 
+### The .claude directory
+
+- ~/.claude
+  - ~/.claude/projects/
+  - ~/.claude/settings.json
+
+### Explore the context window
+
+### Prompt caching
