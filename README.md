@@ -28,3 +28,7 @@
 - https://openrouter.ai/
 - https://openrouter.ai/openrouter/free
 
+# Courses
+
+- https://zeuikli.github.io/cc-workspace-docs/
+
