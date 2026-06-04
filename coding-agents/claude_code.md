@@ -66,3 +66,47 @@
 ### Explore the context window
 
 ### Prompt caching
+
+
+## Use Claude Code
+
+### Store instructions and memories
+
+- How Claude remembers your project between sessions:
+  - 1) CLAUDE.md, 2) Auto memory
+  - loaded at the start of every session
+- CLAUDE.md files
+  - Where
+    - Managed policy:
+      • macOS: /Library/Application Support/ClaudeCode/CLAUDE.md
+      • Linux and WSL: /etc/claude-code/CLAUDE.md
+    - User instructions: ~/.claude/CLAUDE.md
+    - Project instructions: ./CLAUDE.md or ./.claude/CLAUDE.md
+    - Local instructions: ./CLAUDE.local.md
+  - Set up a project CLAUDE.md
+  - Write effective instructions:
+    - size: target under 200 lines per CLAUDE.md file.
+    - structure, specificity, consistency
+    - Import additional files: @path/to/import
+  - Claude Code reads CLAUDE.md, not AGENTS.md
+    - import AGENTS.md from other agents: @AGENTS.md
+    - or: ln -s AGENTS.md CLAUDE.md
+  - Organize rules with .claude/rules/
+  - Manage CLAUDE.md for large teams
+- Auto memory
+  - Auto memory lets Claude accumulate knowledge across sessions without you writing anything. 
+  - Storage location
+    - Each project gets its own memory directory at ~/.claude/projects/<project>/memory/
+    - The first 200 lines of MEMORY.md, or the first 25KB, whichever comes first, are loaded at the start of every conversation.
+  - /memory
+
+
+### Permission modes
+
+### Manage sessions
+
+### Common workflows
+
+### Prompt library
+
+### Best practices
