@@ -96,7 +96,7 @@
 - Auto memory
   - Auto memory lets Claude accumulate knowledge across sessions without you writing anything. 
   - Storage location
-    - Each project gets its own memory directory at ~/.claude/projects/<project>/memory/
+    - Each project gets its own memory directory at ~/.claude/projects/&lt;project>/memory/
     - The first 200 lines of MEMORY.md, or the first 25KB, whichever comes first, are loaded at the start of every conversation.
   - /memory
 
