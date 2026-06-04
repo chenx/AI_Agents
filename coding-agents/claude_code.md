@@ -196,12 +196,30 @@ Claude Code offers several ways to work when you’re not at your terminal. They
 ### Remote Control
 
 #### Start a Remote Control session
-
+```
 claude remote-control --name [name]
+```
 
-Connect from another device: 
-
-Enable Remote Control for all sessions
+- Connect from another device
+- Enable Remote Control for all sessions
+- Remote Control vs Claude Code on the web
+- Mobile push notifications
 
 #### Connection and security
 
+
+### Claude Code on the web
+
+### Claude Code on desktop
+
+### Chrome extesion (beta)
+
+### Computer use (preview)
+
+### Visual Studio Code
+
+### JetBrains IDEs
+
+### Code Review & CI/CD
+
+### Claude Code in Slack
