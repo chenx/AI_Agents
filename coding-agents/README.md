@@ -77,10 +77,82 @@ This setup allows you to visually inspect live file changes in your editor while
 
 ### Experience:
 
-Cursor: easy to use, both IDE and CLI have full features; allow choosing from different LLMs. Branched from VS Code.
+Cursor: 
+- easy to use, both IDE and CLI have full features; allow choosing from different LLMs. Branched from VS Code.
+- Strong when you want the editor, diffs, and project context in one place; friction if you
+  live in an external terminal or non-VS Code stack.
 
-Claude Code: powerful CLI, IDE was added later. Depth of reasoning.
+Claude Code: 
+- powerful CLI, IDE was added later. Depth of reasoning.
+- Strong for long, repo-wide tasks from the shell; weaker if you miss inline UI and
+    quick single-file edits.
 
-Codex: CLI has limited commands and features. Connect to mobile codex has issue sometimes.
+Codex: 
+- CLI has limited commands and features. Connect to mobile codex has issue sometimes.
+- Strong for API/automation and ChatGPT-style sessions; less “native repo agent” unless you
+    wire tools yourself.
 
 Often a mixed setup: use Cursor as IDE, run cc and codex in terminal.
+
+#### Your summary
+
+Your summary matches how a lot of people actually use these tools day to day. Here’s how I’d read it
+   and where I’d add nuance.
+
+  Cursor
+
+  Agree: Forking VS Code lowers the learning curve — extensions, keybindings, and “open file → edit →
+  diff” feel familiar. Letting you pick models is a real differentiator when you care about speed vs
+  reasoning vs cost on a given task.
+
+  Nuance: “Full features” in IDE vs CLI is directionally right, but the feel differs: the IDE is
+  strongest for tight feedback loops (inline edits, multi-file review, @ context). The CLI shines when
+   you want agent work without leaving the terminal or when you’re scripting/automating. Many people
+  use both; neither fully replaces the other for every workflow.
+
+  Your takeaway is solid: Cursor optimizes for low friction + flexibility (model + surface).
+
+  Claude Code
+
+  Agree: It started CLI-first and still feels that way — long-horizon repo work, shell-native flow,
+  and “go deep on this codebase” are where it earns its reputation. “Depth of reasoning” is the common
+   praise: fewer shallow one-liners, more sustained planning on messy tasks.
+
+  Nuance: The IDE add-on often lags the CLI in muscle memory and polish, not necessarily capability.
+  If you already live in a terminal-centric workflow, Claude Code can feel more natural than bolting
+  an agent onto an editor you don’t use. If you live in the editor, Cursor’s integrated loop can still
+   win on speed for small changes.
+
+  Your takeaway is solid: Claude Code optimizes for CLI power + sustained reasoning, with IDE as a
+  second surface.
+
+  Codex
+
+  Agree: The CLI surface has historically felt narrower than Cursor’s or Claude Code’s — fewer
+  commands, less “batteries included” agent ergonomics unless you wire more yourself. Mobile ↔
+  desktop sync/connectivity complaints show up in real usage; intermittent issues are believable when
+  the value prop is “continue on phone” but the happy path is still desktop.
+
+  Nuance: Codex’s strength is often reach (ChatGPT ecosystem, mobile continuation, API-style use)
+  rather than richest local dev agent. Limited CLI isn’t always wrong if your job is quick questions
+  or remote continuation; it hurts when you want the same autonomous edit/test loop you get in Cursor
+  or Claude Code.
+
+  Your takeaway is solid: Codex optimizes for accessibility and continuity, with tradeoffs on local 
+  agent depth and CLI completeness.
+
+
+#### How I’d map your three bullets to choices
+
+  ┌──────────────────────────────────────────────────────────────┬───────────────────────────────────┐
+  │ If you care most about…                                      │ Your notes point toward…          │
+  ├──────────────────────────────────────────────────────────────┼───────────────────────────────────┤
+  │ Easiest full-stack dev in one product (IDE + agent + models) │ Cursor                            │
+  │ Hardest problems, terminal-first, long reasoning chains      │ Claude Code                       │
+  │ Picking up work on the go / ChatGPT-style flow               │ Codex (when connection is stable) │
+  └──────────────────────────────────────────────────────────────┴───────────────────────────────────┘
+
+#### Trust/Control
+
+If your pain with Codex mobile is reliability, Cursor/Claude Code desktop may stay primary for
+  anything that touches git or prod config; mobile stays read-only or planning.
