@@ -153,7 +153,9 @@ Name, resume, branch, and switch between Claude Code conversations. Covers --con
 
 ## Platforms and integrations
 
-### Where to run Claude Code
+### Overview
+
+#### Where to run Claude Code
 
 | Platform      | Best for                                                                                           | What you get                                                                                                                  |
 | ------------- | -------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------- |
@@ -165,7 +167,7 @@ Name, resume, branch, and switch between Claude Code conversations. Covers --con
 | **Mobile**    | Starting and monitoring tasks while away from your computer                                        | Cloud sessions from the Claude app for iOS and Android, Remote Control for local sessions, Dispatch to Desktop on Pro and Max |
 
 
-### Connect your tools
+#### Connect your tools
 
 Integrations let Claude work with services outside your codebase.
 
@@ -178,7 +180,7 @@ Integrations let Claude work with services outside your codebase.
 | **Slack**          | Responds to @Claude mentions in your channels      | Turning bug reports into pull requests from team chat            |
 
 
-### Work when you are away from your terminal
+#### Work when you are away from your terminal
 
 Claude Code offers several ways to work when you’re not at your terminal. They differ in what triggers the work, where Claude runs, and how much you need to set up.
 
