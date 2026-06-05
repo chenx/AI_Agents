@@ -14,6 +14,8 @@
 | **Model Access** | Hybrid (Supports Claude, GPT-4, etc.) | Locked to Anthropic Claude | OpenAI backbone (GPT-4/GPT-5+) |
 | **Best For** | Iterative coding, fast inline edits, and staying in flow | Multi-file changes, heavy refactoring, and backend orchestration | Large, well-defined autonomous tasks or background GitHub work |
 
+BTW, as of 06/2026, Claude Code, Codex and Gemini all have Android/iOS Apps, but Cursor does not. Cursor Mobile – Remote IDE available on the Apple App Store for iPhone and iPad, but the publisher is Andrei Ramaniuk, not by the company behind Cursor.
+
 ---
 
 ### Detailed Breakdown
