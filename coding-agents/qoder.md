@@ -1,4 +1,4 @@
-# QCoder
+# Qoder
 
 Qoder is an agentic coding platform and AI code editor developed by Alibaba. It was officially launched in August 2025 and is designed as an intelligent pair programming assistant and autonomous coding expert. 
 
